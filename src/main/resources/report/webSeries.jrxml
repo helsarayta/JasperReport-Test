@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+	name="Season" pageWidth="595" pageHeight="842" isIgnorePagination = "true"
+	columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	
+	<property name="net.sf.jasperreports.export.xls.detect.cell.type" value="true"/>
+	<property name="net.sf.jasperreports.print.keep.full.text" value="true"/>
+	<property name="net.sf.jasperreports.exports.xls.font.size.fix.enabled" value="false"/>
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.rows" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.remove.empty.space.between.columns" value="true"/>
+	<property name="net.sf.jasperreports.export.xls.white.page.background" value="false"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="inch"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="inch"/>
+	
+	<parameter name="SEASON" class="java.lang.String" isForPrompting="false"/>
+	
+	<queryString language="SQL">
+        <![CDATA[SELECT * FROM public.web_series where season in ($P!{SEASON})]]>
+    </queryString>
+    
+    <field name="id" class="java.lang.Long"/>
+    <field name="season" class="java.lang.Integer"/>
+    <field name="episode" class="java.lang.Integer"/>
+    <field name="title" class="java.lang.String"/>
+    <field name="directed_by" class="java.lang.String"/>
+    <field name="written_by" class="java.lang.String"/>
+    <field name="release_date" class="java.lang.String"/>
+    <field name="views" class="java.lang.String"/>
+    
+    <columnHeader>
+        <band height="20" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="100" height="20"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+                <text><![CDATA[ID]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="100" y="0" width="100" height="20"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+                <text><![CDATA[Season]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="200" y="0" width="100" height="20"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+                <text><![CDATA[Episode]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="300" y="0" width="200" height="20"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+                <text><![CDATA[Title]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="500" y="0" width="100" height="20"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+                <text><![CDATA[Directed By]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="600" y="0" width="300" height="20"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+                <text><![CDATA[Written By]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="900" y="0" width="100" height="20"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+                <text><![CDATA[Release Date]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="1000" y="0" width="100" height="20"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+                <text><![CDATA[Views]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    
+    <detail>
+        <band height="20" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="100" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{season}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="200" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{episode}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="300" y="0" width="200" height="20"/>
+                <textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="500" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{directed_by}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="600" y="0" width="300" height="20"/>
+                <textFieldExpression><![CDATA[$F{written_by}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="900" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{release_date}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="1000" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{views}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>
